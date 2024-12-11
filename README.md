@@ -11,9 +11,9 @@ Please answer the following questions:
 2. Why does this project not adhere to the clean architecture even though we have seperate modules for api, repositories, usecases and the model?\
  **Answer**: Despite the modular structure, message passing often relies on types from outer layers, such as ORM models and API requests/responses, which violates clean architecture principles.
 3. What would be your plan to refactor the project to stick to the clean architecture?\
- **Answer**: I would introduce entities in the innermost layer, refactor the existing code accordingly, and add a Repository interface that decouples the database implementation, enabling an in-memory version with a config parameter.
+ **Answer**: I would introduce entities in the innermost layer, refactor the existing code accordingly, and add a Repository interface that decouples the database implementation, enabling an in-memory version with a config parameter. Also I've added custom exception classes, since HTTP errors are related to API only.
 4. How can you make dependencies between modules more explicit?\
- **Answer**:  I introduced a service.py in the item microservice to expose the necessary functions and interfaces for the user microservice, making the dependencies clear.
+ **Answer**:  I introduced a service.py in the item microservice to expose the necessary functions and interfaces for the user microservice, making the dependencies clear.\
 *Please do not spend more than 2-3 hours on this task.*
 
 Stretch goals:
