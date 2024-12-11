@@ -50,5 +50,5 @@ count = true
 #plugins = "sqlalchemy.ext.mypy.plugin"
 
 [tool.project_config]
-#db = "postgresql://postgres:example@localhost:5441/postgres"
-db = "memory"
+db = "postgresql://postgres:example@localhost:5441/postgres"
+#db = "memory"

@@ -8,4 +8,5 @@ from .item.model import ItemDB
 
 
 def create_db_schema():
-    Base.metadata.create_all(bind=DbConnection(settings.db).engine)
+    db_url: str = settings.tool.project_config.db
+    Base.metadata.create_all(bind=DbConnection(db_url).engine)
