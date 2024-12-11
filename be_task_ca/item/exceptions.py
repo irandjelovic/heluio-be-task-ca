@@ -1,0 +1,2 @@
+class ItemDuplicateError(Exception):
+    pass

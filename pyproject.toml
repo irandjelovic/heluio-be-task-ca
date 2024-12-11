@@ -12,6 +12,8 @@ sqlalchemy = "^2.0.11"
 psycopg2 = "^2.9.6"
 fastapi = "^0.95.1"
 uvicorn = "^0.22.0"
+dynaconf = "^3.2.5"
+httpx = "^0.23.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -41,8 +43,12 @@ typing = "scripts:check_types"
 per-file-ignores = [
     'api.py:B008', #ignore Depends(get_db) warnings
 ]
-max-line-length = 88
+max-line-length = 140
 count = true
 
 [tool.mypy]
 #plugins = "sqlalchemy.ext.mypy.plugin"
+
+[tool.project_config]
+#db = "postgresql://postgres:example@localhost:5441/postgres"
+db = "memory"

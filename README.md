@@ -7,10 +7,13 @@ This project is a very naive implementation of a simple shop system. It mimics i
 Please answer the following questions:
 
 1. Why can we not easily split this project into two microservices?
+ Answer: Both microservices depend on CartItem, making it difficult to decouple them.
 2. Why does this project not adhere to the clean architecture even though we have seperate modules for api, repositories, usecases and the model?
+ Answer: Despite the modular structure, message passing often relies on types from outer layers, such as ORM models and API requests/responses, which violates clean architecture principles.
 3. What would be your plan to refactor the project to stick to the clean architecture?
+ Answer: I would introduce entities in the innermost layer, refactor the existing code accordingly, and add a Repository interface that decouples the database implementation, enabling an in-memory version with a config parameter.
 4. How can you make dependencies between modules more explicit?
-
+ Answer:  I introduced a service.py in the item microservice to expose the necessary functions and interfaces for the user microservice, making the dependencies clear.
 *Please do not spend more than 2-3 hours on this task.*
 
 Stretch goals:
@@ -30,7 +33,7 @@ If you have not installed poetry you find instructions [here](https://python-poe
 1. `docker-compose up` - runs a postgres instance for development
 2. `poetry install` - install all dependency for the project
 3. `poetry run schema` - creates the database schema in the postgres instance
-4. `poetry run start` - runs the development server at port 8000
+4. `poetry run start` - runs the development server at port 8100
 5. `/postman` - contains an postman environment and collections to test the project
 
 ## Other commands
