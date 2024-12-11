@@ -16,7 +16,7 @@ class RepositoryDb(Repository):
     def save_user(self, user: User) -> User:
         db_user: UserDB = UserDB.from_entity(user)
         with self._conn.get_session() as session:
-            session.add(db_user)
+            session.merge(db_user)
             session.commit()
             return db_user.to_entity()
 
